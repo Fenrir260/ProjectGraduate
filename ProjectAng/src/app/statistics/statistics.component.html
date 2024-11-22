@@ -1,0 +1,64 @@
+<h2 class="text-center my-5">Статистика</h2>
+<div class="card">
+  <div class="card-header">
+    <h4 class="text-center align-middle fs-5">Огляд</h4>
+  </div>
+  <div class="card-body">
+    <table class="table table-striped">
+      <tbody>
+        <tr>
+          <th class="align-middle">Кількість товару в інвентарі</th>
+          <td class="text-center align-middle">{{ countOfProducts }}</td>
+        </tr>
+        <tr>
+          <th class="align-middle">Загальна сума зароблених коштів</th>
+          <td class="text-center align-middle">{{ countOfTotalSells | currency }}</td>
+        </tr>
+        <tr>
+          <th class="align-middle">Виробник з найбільшим обсягом продажів</th>
+          <td class="text-center align-middle">{{ bestSellingProduct.producer }}</td>
+        </tr>
+        <tr>
+          <th class="align-middle">Найпопулярніший виробник</th>
+          <td class="text-center align-middle">
+            <ul>
+              <li *ngFor="let producer of popularProducer">{{ producer.productName }}</li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <th class="align-middle">Товар із найбільшою кількістю замовлень</th>
+          <td class="text-center align-middle">{{ mostOrderedProduct.productName }} ({{ mostOrderedProduct.numberOf }} замовлень)</td>
+        </tr>
+        <tr>
+          <th class="align-middle">Найдорожчий товар</th>
+          <td class="text-center align-middle">{{ mostExpensiveProduct.productName }} ({{ mostExpensiveProduct.price | currency }})</td>
+        </tr>
+        <tr>
+          <th class="align-middle">Найдешевий товар</th>
+          <td class="text-center align-middle">{{ leastExpensiveProduct.productName }} ({{ leastExpensiveProduct.price | currency }})</td>
+        </tr>
+        <tr>
+          <th class="align-middle">Середня ціна товару</th>
+          <td class="text-center align-middle">{{ averagePrice | currency }}</td>
+        </tr>
+        <tr>
+          <th class="align-middle">Середній обсяг продажів на товар</th>
+          <td class="text-center align-middle">{{ averageSalesPerProduct }}</td>
+        </tr>
+        <tr>
+          <th class="align-middle">Кількість унікальних виробників</th>
+          <td class="text-center align-middle">{{ uniqueProducersCount }}</td>
+        </tr>
+        <tr>
+          <th class="align-middle">Обсяг продажів за категоріями</th>
+          <td class="text-center align-middle">
+            <ul>
+              <li *ngFor="let category of salesVolumeByCategory | keyvalue">{{ category.key }}: {{ category.value }}</li>
+            </ul>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

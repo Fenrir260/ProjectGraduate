@@ -1,0 +1,45 @@
+<h2 class="text-center my-5">Інвентар</h2>
+<div class="card">
+    <div class="card-header">
+        <h4 class="text-center align-middle fs-5">Огляд</h4>
+    </div>
+    <div class="card-body">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th class="text-center align-middle">Id</th>
+                    <th class="text-center align-middle">Код продукту</th>
+                    <th class="text-center align-middle">Назва продукту</th>
+                    <th class="text-center align-middle">Виробник</th>
+                    <th class="text-center align-middle">Кількість проданого продукту</th>
+                    <th class="text-center align-middle">Ціна</th>
+                    <th class="text-center align-middle">Сума замовлення</th>
+                    <th class="text-center align-middle">Категорія</th>
+                    <th class="text-center align-middle" >Під категорія</th>
+                    <th class="text-center align-middle" *ngIf="authenticationCheck">Видалити</th>
+                    <th class="text-center align-middle" *ngIf="authenticationCheck">Редагувати</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let goods of goodses">
+                    <th class="text-center align-middle" >{{goods.id}}</th>
+                    <th class="text-center align-middle" >{{goods.productCode}}</th>
+                    <th class="text-center align-middle" >{{goods.productName}}</th>
+                    <th class="text-center align-middle">{{goods.producer}}</th>
+                    <th class="text-center align-middle">{{goods.numberOf}}</th>
+                    <th class="text-center align-middle">{{goods.price}}</th>
+                    <th class="text-center align-middle">{{goods.orderPrice}}</th>
+                    <th class="text-center align-middle">{{goods.category}}</th>
+                    <th class="text-center align-middle">{{goods.subcategory}}</th>
+                    <th class="text-center align-middle" *ngIf="authenticationCheck">
+                        <button (click)="deleteGoods(goods.id)" type="button" class="btn btn-outline-danger btn-sm m-2">Delete</button>
+                    </th>
+                    <th class="text-center align-middle" *ngIf="authenticationCheck">
+                        <button (click)="editGoods(goods.id)" type="button" class="btn btn-outline-primary btn-sm">Edit</button>
+                    </th>
+                    
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

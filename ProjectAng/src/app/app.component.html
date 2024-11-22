@@ -1,0 +1,52 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Інвентар</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav me-auto"> 
+        <li class="nav-item">
+          <a class="nav-link active" [routerLink]="['/']" routerLinkActive="router-link-active">Home</a>
+        </li>
+        <li class="nav-item" *ngIf="!authenticationCheck">
+          <a class="nav-link active" [routerLink]="['signin']" routerLinkActive="router-link-active">Ввійти</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" [routerLink]="['statistics']" routerLinkActive="router-link-active">Статистика</a>
+        </li>
+      </ul>
+      
+      <ul class="navbar-nav ms-auto">
+        
+        <li class="nav-item" *ngIf="statusCheck && authenticationCheck">
+          <a class="nav-link active" [routerLink]="['signup']" routerLinkActive="router-link-active">Створити користувача</a>
+        </li>
+        <li class="nav-item" *ngIf="authenticationCheck">
+          <a class="nav-link active" [routerLink]="['create-edit-goodses']" routerLinkActive="router-link-active">Створити товар</a>
+        </li>     
+        <li class="nav-item dropdown" 
+          (mouseenter)="showLogout = true" 
+          (mouseleave)="showLogout = false">
+        <a class="nav-link active dropdown-toggle" href="#" role="button" aria-expanded="false">
+          {{ authenticationCheck ? loginedUser.login : 'Гість' }}
+        </a>
+        <div *ngIf="showLogout && authenticationCheck" class="dropdown-menu show">
+          <a class="dropdown-item" (click)="logout()">Вийти</a> <!-- [routerLink]="['signin']" -->
+        </div>
+      </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="container">
+  <router-outlet></router-outlet>
+</div>

@@ -1,0 +1,13 @@
+<form class="border rounded p-5 w-50 mb-5 mx-auto">
+    <div class="container text-center">
+        <div class="mb-3"> 
+            <label class="form-label"> Login </label>
+            <input class="form-control" type="text" name="firstName" [(ngModel)]="user.login"/>
+        </div>
+        <div class="mb-3">   
+            <label class="form-label"> Password </label>
+            <input class="form-control" type="text" name="lastName" [(ngModel)]="user.password"/>
+        </div>
+        <button class="btn btn-outline-primary btn-m" type="submit" (click)="onSubmit()">Sign In</button>
+    </div>
+</form>

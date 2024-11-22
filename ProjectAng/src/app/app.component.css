@@ -1,0 +1,15 @@
+.dropdown-menu {
+    display: block;
+    position: absolute;
+    background-color: white;
+    border: 1px solid #ddd;
+    padding: 5px;
+    min-width: 100px;
+    right: 0; /* Притискає меню до правого краю батьківського елемента */
+    z-index: 1000; /* Задає пріоритет, щоб меню завжди було зверху */
+  }
+  
+  .nav-item.dropdown {
+    position: relative; /* Щоб меню було вирівняне відносно батьківського елемента */
+  }
+  

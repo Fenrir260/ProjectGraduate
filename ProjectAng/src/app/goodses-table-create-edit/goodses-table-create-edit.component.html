@@ -1,0 +1,44 @@
+<h2 class="text-center my-5">{{isEditing? 'Редагувати' : 'Створити'}} товар</h2>
+
+<div class="text-danger text-center"*ngIf="errorMessage != ''">
+    {{errorMessage}}
+</div>
+
+
+<form class="border rounded p-5 w-50 mb-5 mx-auto">
+    <div class="container text-center">
+        <div class="mb-3"> 
+            <label class="form-label"> Код продукту </label>
+            <input class="form-control" type="text" name="productCode" [(ngModel)]="goodsToAdd.productCode"/>
+        </div>
+        <div class="mb-3">   
+            <label class="form-label"> Назва продукту </label>
+            <input class="form-control" type="text" name="productName" [(ngModel)]="goodsToAdd.productName"/>
+        </div>
+        <div class="mb-3">   
+            <label class="form-label"> Виробник </label>
+            <input class="form-control" type="text" name="producer" [(ngModel)]="goodsToAdd.producer"/>
+        </div>
+        <div class="mb-3">   
+            <label class="form-label"> Кількість продукту </label>
+            <input class="form-control" type="text" name="numberOf" [(ngModel)]="goodsToAdd.numberOf"/>
+        </div>
+        <div class="mb-3">   
+            <label class="form-label"> Ціна </label>
+            <input class="form-control" type="text" name="price" [(ngModel)]="goodsToAdd.price"/>
+        </div>
+        <div class="mb-3">   
+            <label class="form-label"> Сума замовлення </label>
+            <input class="form-control" type="text" name="orderPrice" [(ngModel)]="goodsToAdd.orderPrice"/>
+        </div>
+        <div class="mb-3">   
+            <label class="form-label"> Категорія </label>
+            <input class="form-control" type="text" name="category" [(ngModel)]="goodsToAdd.category"/>
+        </div>
+        <div class="mb-3">   
+            <label class="form-label"> Під категорія </label>
+            <input class="form-control" type="text" name="subcategory" [(ngModel)]="goodsToAdd.subcategory"/>
+        </div>
+        <button class="btn btn-outline-primary btn-m" type="submit" (click)="onSubmit()">{{!isEditing? 'Добавити продукт' : 'Редагувати продукт'}}</button>
+    </div>
+</form>
